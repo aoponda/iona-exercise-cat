@@ -1,8 +1,10 @@
 <template>
   <div class="text-center my-3">
-    <h1>Cat Breed Browser</h1>
-    <div class="d-flex justify-content-center">
-      <HeaderLink to="/" exact>Home</HeaderLink>
+    <div class="d-flex text-center">
+      <HeaderLink to="/" exact>
+        <h1>Cat Breed Browser</h1>
+      </HeaderLink>
+      <p>Presented by: ANLOponda</p>
       <HeaderLink to="/breed">List</HeaderLink>
     </div>
   </div>
