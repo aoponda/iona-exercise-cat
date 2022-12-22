@@ -1,8 +1,6 @@
 <template>
   <Header />
-  <div class="container my-3">
-    <router-view />
-  </div>
+  <router-view />    
 </template>
 
 <script lang="ts">

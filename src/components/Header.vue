@@ -1,13 +1,18 @@
 <template>
-  <div class="text-center my-3">
-    <div class="d-flex text-center">
-      <HeaderLink to="/" exact>
-        <h1>Cat Breed Browser</h1>
-      </HeaderLink>
-      <p>Presented by: ANLOponda</p>
-      <HeaderLink to="/breed">List</HeaderLink>
-    </div>
-  </div>
+
+  <b-container fluid class="ticker">
+    <b-row>
+      <b-col cols="3" class="ticker-left">Cat Breed Browser</b-col>
+      <b-col cols="6"></b-col>
+      <b-col cols="3" class="ticker-right">Presented by: ANLOponda</b-col>
+    </b-row>
+  </b-container>
+
+    <!-- <b-nav>
+      <b-nav-item href="/">Cat Breed Browser</b-nav-item>
+      <b-nav-text>Presented by: ANLOponda</b-nav-text>
+    </b-nav> -->
+  
 </template>
 
 <script lang="ts">
