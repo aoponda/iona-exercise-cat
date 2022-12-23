@@ -1,8 +1,8 @@
 <template>
 
-  <b-container fluid class="ticker">
+  <b-container fluid class="ticker py-1">
     <b-row>
-      <b-col cols="3" class="ticker-left">Cat Breed Browser</b-col>
+      <b-col cols="3" class="ticker-left">IONA Application</b-col>
       <b-col cols="6"></b-col>
       <b-col cols="3" class="ticker-right">Presented by: ANLOponda</b-col>
     </b-row>

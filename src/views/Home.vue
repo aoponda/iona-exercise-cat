@@ -1,18 +1,21 @@
 <template>
-  <div class="container">
-    <h1>Cat Browser (Home.vue)</h1>
+  <b-container fluid class="py-4 bg-dark text-light">
+    <h1 class="text-center">Cat Browser</h1>
 
-    <b-form-select v-model="selectedBreed">
-      <b-form-select-option selected disabled value="">Select Breed</b-form-select-option>
-      <b-form-select-option 
-        v-for="breedItem in breedList" 
-        :value="breedItem.id">
+    <b-container class="py-3">
+      <b-form-select v-model="selectedBreed">
+        <b-form-select-option selected disabled value="">
+          Select Breed
+        </b-form-select-option>
+        <b-form-select-option 
+          v-for="breedItem in breedList" 
+          :value="breedItem.id">
           {{ breedItem.name }}
-      </b-form-select-option>
-    </b-form-select>
-
-    <div v-show="selectedBreed" > 
-      <b-card-group deck >
+        </b-form-select-option>
+      </b-form-select>
+    </b-container>
+    <b-container class="py-3" v-show="selectedBreed">
+      <b-card-group columns>
         <b-card
           v-for="(breedImage, index) in breedImages"
           :key="index"
@@ -20,24 +23,24 @@
           :img-src="breedImage.url"
           :img-alt="breedImage.name"
           img-top
+          no-body
         >
-        <template #footer>
-          <router-link
-            :to="{
-              name: 'Image',
-              params: {
-                id: breedImage.id
-              }
-            }">
-            <b-button variant="primary">View Details</b-button>
-          </router-link>
-        </template>
-          
+          <template #footer>
+            <router-link
+              :to="{
+                name: 'Image',
+                params: {
+                  id: breedImage.id
+                }
+              }">
+              <b-button variant="primary">View Details</b-button>
+            </router-link>
+          </template>
         </b-card>
       </b-card-group>
       <b-button @click="loadMore">Load More</b-button>
-    </div>
-  </div>
+    </b-container>
+  </b-container>
 </template>
 
 <script lang="ts">
@@ -54,12 +57,12 @@ export default defineComponent({
       breedList: [] as Breed[],
       breedImages: [] as Image[],
       selectedBreed: "",
-      length: 4,
+      length: 5,
     };
   }, 
   watch: {
     selectedBreed: function() {
-      this.length = 4;
+      this.length = 5;
       this.getBreedImages();
     },
   },
@@ -86,7 +89,7 @@ export default defineComponent({
     },
     loadMore() {
       if (this.length > this.breedImages.length) return;
-      this.length = this.length + 4;
+      this.length = this.length + 5;
     }
   },
   computed: {

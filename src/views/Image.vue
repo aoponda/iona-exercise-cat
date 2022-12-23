@@ -1,6 +1,22 @@
 <template>
-  <div class="container">
-    <h1>{{ imageDetails.name }}</h1>
+  <b-container fluid class="py-4 bg-dark text-light">
+    <h1 class="text-center">{{ imageDetails.name }}</h1>
+
+    <b-container class="py-3">
+      <b-img
+        :src="imageDetails.url"
+        fluid-grow
+        :alt="imageDetails.name"
+      ></b-img>
+    </b-container>
+
+    <b-container class="py-3">
+      <p>{{ imageDetails.description }}</p>
+      <h2>Country of Origin</h2>
+      <p>{{ imageDetails.origin }}</p>
+      <h2>Temperament</h2>
+      <p>{{ imageDetails.temperament }}</p>
+    </b-container>
 
     <!-- 
     <router-link
@@ -13,17 +29,8 @@
       <b-button variant="primary">Back to Home</b-button>
     </router-link>
     -->
-
-    <img :src="imageDetails.url" alt="" />
-    <h2>Origin</h2>
-    <p>{{ imageDetails.origin }}</p>
-
-    <h2>Temperament</h2>
-    <p>{{ imageDetails.temperament }}</p>
-
-    <h2>Description</h2>
-    <p>{{ imageDetails.description }}</p>
-  </div>
+    
+  </b-container>
 </template>
 
 
@@ -31,7 +38,6 @@
 import { defineComponent } from "vue";
 import ImageDataService from "@/services/ImageDataService";
 import type Image from "@/types/Image";
-
 export default defineComponent({
   name: "Image",
   props:['id'],

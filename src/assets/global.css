@@ -1,18 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,400&display=swap');
-
-
-/* * {
-    font-family: 'Open Sans';
-    background: #0D1117;
-    color: #CAD1D9;
-} */
+html {
+  background-color: #212529;
+}
 
 .ticker {
   background-color: #F9F9F9;
+  color: black;
 }
 
 .ticker-left, .ticker-right {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .ticker-left {
@@ -21,4 +17,8 @@
 
 .ticker-right {
   text-align: right;
+}
+
+.breed-card {
+  width: 33%;
 }
