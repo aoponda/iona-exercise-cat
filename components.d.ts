@@ -16,9 +16,10 @@ declare module '@vue/runtime-core' {
     BFormSelectOption: typeof import('bootstrap-vue-3')['BFormSelectOption']
     BImg: typeof import('bootstrap-vue-3')['BImg']
     BRow: typeof import('bootstrap-vue-3')['BRow']
-    Header: typeof import('./src/components/Header.vue')['default']
+    Header: typeof import('./src/components/Ticker.vue')['default']
     HeaderLink: typeof import('./src/components/HeaderLink.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Ticker: typeof import('./src/components/Ticker.vue')['default']
   }
 }

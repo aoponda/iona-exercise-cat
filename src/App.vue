@@ -1,16 +1,16 @@
 <template>
-  <Header />
+  <Ticker />
   <router-view />    
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Header from "./components/Header.vue";
+import Ticker from "./components/Ticker.vue";
 
 export default defineComponent({
   name: "CatBreedBrowser",
   components: { 
-    Header
+    Ticker
   }
 })
 </script>

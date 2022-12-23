@@ -1,8 +1,21 @@
 <template>
   <b-container fluid class="py-4 bg-dark text-light">
-    <h1 class="text-center">{{ imageDetails.name }}</h1>
+    <b-container>
+      <b-row align-v="center">
+        <b-col>
+          <h1 class="text-start">{{ imageDetails.name }}</h1>
+        </b-col>
+        <b-col>
+          <p class="button-back text-end">
+            <b-button variant="primary">Back to Home</b-button>
+          </p>
+        </b-col>
+      </b-row>
+    </b-container>
 
-    <b-container class="py-3">
+    
+
+    <b-container class="py-4">
       <b-img
         :src="imageDetails.url"
         fluid-grow
