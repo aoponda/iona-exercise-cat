@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="py-4 bg-dark text-light">
+  <b-container fluid class="py-5 bg-dark text-light">
     <b-container>
       <b-row align-v="center">
         <b-col>
@@ -7,13 +7,13 @@
         </b-col>
         <b-col>
           <p class="button-back text-end">
-            <b-button variant="primary">Back to Home</b-button>
+            <a :href="`/?breed=${imageDetails.breedId}`">
+              <b-button variant="primary">Back to Home</b-button>
+            </a>
           </p>
         </b-col>
       </b-row>
     </b-container>
-
-    
 
     <b-container class="py-4">
       <b-img
@@ -29,36 +29,25 @@
       <p>{{ imageDetails.origin }}</p>
       <h2>Temperament</h2>
       <p>{{ imageDetails.temperament }}</p>
+      <a :href="`/?breed=${imageDetails.breedId}`">
+        <b-button variant="primary">Back to Home</b-button>
+      </a>
     </b-container>
-
-    <!-- 
-    <router-link
-      :to="{
-        name: 'HomeBreed',
-        params: {
-          breed: imageDetails.breedId,
-        }
-      }">
-      <b-button variant="primary">Back to Home</b-button>
-    </router-link>
-    -->
-    
   </b-container>
 </template>
-
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import ImageDataService from "@/services/ImageDataService";
 import type Image from "@/types/Image";
 export default defineComponent({
-  name: "Image",
-  props:['id'],
+  name: "ImageComponent",
+  props: ["id"],
   data() {
     return {
       imageDetails: {} as Image,
     };
-  }, 
+  },
   methods: {
     getImageDetails() {
       ImageDataService.getImageDetails(this.id)
@@ -79,6 +68,6 @@ export default defineComponent({
   },
   mounted() {
     this.getImageDetails();
-  }
+  },
 });
 </script>

@@ -4,12 +4,16 @@
 
     <b-container class="py-3">
       <b-form-select v-model="selectedBreed">
-        <b-form-select-option selected disabled value="">
-          Select Breed
-        </b-form-select-option>
-        <b-form-select-option 
-          v-for="breedItem in breedList" 
-          :value="breedItem.id">
+        <template #first>
+          <b-form-select-option :value="null" disabled
+            >Select a breed</b-form-select-option
+          >
+        </template>
+        <b-form-select-option
+          v-for="breedItem in breedList"
+          :key="breedItem.id"
+          :value="breedItem.id"
+        >
           {{ breedItem.name }}
         </b-form-select-option>
       </b-form-select>
@@ -17,8 +21,8 @@
     <b-container class="py-3" v-show="selectedBreed">
       <b-card-group columns>
         <b-card
-          v-for="(breedImage, index) in breedImages"
-          :key="index"
+          v-for="breedImage in breedImages"
+          :key="breedImage.id"
           :title="breedImage.name"
           :img-src="breedImage.url"
           :img-alt="breedImage.name"
@@ -30,15 +34,15 @@
               :to="{
                 name: 'Image',
                 params: {
-                  id: breedImage.id
-                }
-              }">
+                  id: breedImage.id,
+                },
+              }"
+            >
               <b-button variant="primary">View Details</b-button>
             </router-link>
           </template>
         </b-card>
       </b-card-group>
-      <b-button @click="loadMore">Load More</b-button>
     </b-container>
   </b-container>
 </template>
@@ -51,18 +55,16 @@ import type Breed from "@/types/Breed";
 import type Image from "@/types/Image";
 
 export default defineComponent({
-  name: "Home",
+  name: "HomeComponent",
   data() {
     return {
       breedList: [] as Breed[],
       breedImages: [] as Image[],
-      selectedBreed: "",
-      length: 5,
+      selectedBreed: String(this.$route.query.breed),
     };
-  }, 
+  },
   watch: {
-    selectedBreed: function() {
-      this.length = 5;
+    selectedBreed: function () {
       this.getBreedImages();
     },
   },
@@ -87,18 +89,12 @@ export default defineComponent({
           console.log(e);
         });
     },
-    loadMore() {
-      if (this.length > this.breedImages.length) return;
-      this.length = this.length + 5;
-    }
-  },
-  computed: {
-    breedImagesLoaded() {
-      return this.breedImages.slice(0, this.length);
-    }
   },
   mounted() {
     this.getBreeds();
-  }
+    if (this.selectedBreed != undefined) {
+      this.getBreedImages();
+    }
+  },
 });
 </script>

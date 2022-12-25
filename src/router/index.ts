@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/:catchAll(.*)",
     name: "PageNotFound",
     component: PageNotFound,
-  }
+  },
 ];
 
 const router = createRouter({
