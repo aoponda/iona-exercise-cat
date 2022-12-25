@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
-import Home from "../views/Home.vue";
-import Image from "../views/Image.vue";
-import PageNotFound from "../views/PageNotFound.vue";
+import Home from "@/views/Home.vue";
+import Image from "@/views/Image.vue";
+import PageNotFound from "@/views/PageNotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,15 +12,14 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: "/:id",
+    path: "/image/:id",
     name: "Image",
     component: Image,
     props: true,
-    // add beforeEnter things to validate breed
   },
   {
-    path: "/:catchAll(.*)",
-    name: "PageNotFound",
+    path: "/:pathMatch(.*)*",
+    name: "404",
     component: PageNotFound,
   },
 ];

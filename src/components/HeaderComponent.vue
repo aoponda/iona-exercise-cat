@@ -9,4 +9,10 @@
       </b-col>
     </b-row>
   </b-container>
+
+  <b-container fluid class="logo py-3">
+    <p class="p-flat text-center">
+      <b-link class="header-link" href="/"> Cat Breed Browser </b-link>
+    </p>
+  </b-container>
 </template>

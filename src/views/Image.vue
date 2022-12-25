@@ -1,12 +1,12 @@
 <template>
-  <b-container fluid class="py-5 bg-dark text-light">
+  <b-container fluid class="py-5 bg-dark text-light" v-show="imageDetails.id">
     <b-container>
       <b-row align-v="center">
         <b-col>
           <h1 class="text-start">{{ imageDetails.name }}</h1>
         </b-col>
         <b-col>
-          <p class="button-back text-end">
+          <p class="p-flat text-end">
             <a :href="`/?breed=${imageDetails.breedId}`">
               <b-button variant="primary">Back to Home</b-button>
             </a>
@@ -38,6 +38,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import router from "@/router";
 import ImageDataService from "@/services/ImageDataService";
 import type Image from "@/types/Image";
 export default defineComponent({
@@ -62,7 +63,8 @@ export default defineComponent({
           console.log(response.data);
         })
         .catch((e: Error) => {
-          console.log(e);
+          router.push({ name: "404" });
+          console.log(`Image.vue > getImageDetails() >>> ${e}`);
         });
     },
   },

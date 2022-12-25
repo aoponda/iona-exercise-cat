@@ -1,13 +1,11 @@
 <template>
   <b-container fluid class="py-4 bg-dark text-light">
-    <h1 class="text-center">Cat Browser</h1>
-
     <b-container class="py-3">
       <b-form-select v-model="selectedBreed">
         <template #first>
-          <b-form-select-option :value="null" disabled
-            >Select a breed</b-form-select-option
-          >
+          <b-form-select-option :value="null" selected disabled>
+            Please select a breed
+          </b-form-select-option>
         </template>
         <b-form-select-option
           v-for="breedItem in breedList"
@@ -18,6 +16,7 @@
         </b-form-select-option>
       </b-form-select>
     </b-container>
+
     <b-container class="py-3" v-show="selectedBreed">
       <b-card-group columns>
         <b-card
@@ -49,6 +48,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import router from "@/router";
 import BreedDataServices from "@/services/BreedDataService";
 import ImageDataService from "@/services/ImageDataService";
 import type Breed from "@/types/Breed";
@@ -58,9 +58,12 @@ export default defineComponent({
   name: "HomeComponent",
   data() {
     return {
+      isBreed: true,
       breedList: [] as Breed[],
       breedImages: [] as Image[],
-      selectedBreed: String(this.$route.query.breed),
+      selectedBreed: this.$route.query.breed
+        ? String(this.$route.query.breed)
+        : "",
     };
   },
   watch: {
@@ -75,8 +78,13 @@ export default defineComponent({
           this.breedList = response.data;
           console.log(response.data);
         })
+        .then(() => {
+          if (this.selectedBreed != "") {
+            this.checkBreedList();
+          }
+        })
         .catch((e: Error) => {
-          console.log(e);
+          console.log(`Home.vue > getBreeds() >>> ${e}`);
         });
     },
     getBreedImages() {
@@ -86,13 +94,20 @@ export default defineComponent({
           console.log(response.data);
         })
         .catch((e: Error) => {
-          console.log(e);
+          console.log(`Home.vue > getBreedImages() >>> ${e}`);
         });
+    },
+    checkBreedList() {
+      if (!this.breedList.find((index) => index.id == this.selectedBreed)) {
+        router.push("404");
+      } else {
+        // Do nothing
+      }
     },
   },
   mounted() {
     this.getBreeds();
-    if (this.selectedBreed != undefined) {
+    if (this.isBreed) {
       this.getBreedImages();
     }
   },

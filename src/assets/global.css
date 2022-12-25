@@ -7,13 +7,30 @@ html {
   color: black;
 }
 
+.logo {
+  background-color: #212529;
+  color: white;
+}
+
+.header-link {
+  font-size: 32px;
+  font-weight: 500;
+  color: #F9F9F9;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: #F9F9F9;
+  text-decoration: underline;
+}
+
 .ticker-text {
   font-size: 14px;
   margin: 0;
   padding: 0;
 }
 
-.button-back {
+.p-flat {
   margin: 0;
   padding: 0;
 }
