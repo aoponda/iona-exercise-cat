@@ -3,10 +3,7 @@
     <b-row align-v="center">
       <b-col>
         <p class="text-start p-flat">
-          <b-img
-            src="/src/assets/img/nyan-cat.png"
-            class="header-img"
-          ></b-img>
+          <b-img src="/src/assets/img/nyan-cat.png" class="header-img"></b-img>
           <b-link class="header-link" href="/"> Cat Breed Browser </b-link>
         </p>
       </b-col>
