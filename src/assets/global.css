@@ -12,12 +12,18 @@ html {
   color: #212529;
 }
 
+.header-img {
+  width: 40px;
+  padding-bottom: 8px;
+}
+
 .header-link {
   font-family: "Source Serif Pro";
   font-size: 24px;
   font-weight: 600;
   color: #212529;
   text-decoration: none;
+  padding-left: 5px;
 }
 
 .header-link:hover {
@@ -41,7 +47,7 @@ html {
 }
 
 .not-found-number {
-  font-size: 170px;
+  font-size: 110px;
 }
 
 .not-found-text {

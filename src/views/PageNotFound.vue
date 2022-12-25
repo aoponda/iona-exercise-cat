@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="py-2 bg-dark text-light">
+  <b-container fluid class="py-5 bg-dark text-light">
     <p class="p-flat not-found-number text-center">404</p>
     <p class="p-flat not-found-text text-center">Page not found</p>
     <b-img
