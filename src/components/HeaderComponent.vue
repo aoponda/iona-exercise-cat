@@ -7,7 +7,9 @@
         </p>
       </b-col>
       <b-col>
-        <p class="ticker-text text-end p-flat">IONA Application by: ANLOponda</p>
+        <p class="ticker-text text-end p-flat">
+          IONA Application by: ANLOponda
+        </p>
       </b-col>
     </b-row>
   </b-container>
