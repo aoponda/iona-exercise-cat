@@ -1,12 +1,10 @@
 <template>
-  <b-container fluid class="py-4 bg-dark text-light">
+  <b-container fluid class="py-5 bg-dark text-light">
     <b-container class="py-3">
       <b-form-select v-model="selectedBreed">
-        <template #first>
-          <b-form-select-option :value="null" selected disabled>
-            Please select a breed
-          </b-form-select-option>
-        </template>
+        <b-form-select-option :value="null" selected disabled>
+          Please select a breed
+        </b-form-select-option>
         <b-form-select-option
           v-for="breedItem in breedList"
           :key="breedItem.id"

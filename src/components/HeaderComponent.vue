@@ -1,18 +1,14 @@
 <template>
   <b-container fluid class="ticker py-1">
-    <b-row>
+    <b-row align-v="center">
       <b-col>
-        <p class="ticker-text text-start">IONA Application</p>
+        <p class="ticker-text text-start p-flat">
+          <b-link class="header-link" href="/"> Cat Breed Browser </b-link>
+        </p>
       </b-col>
       <b-col>
-        <p class="ticker-text text-end">Presented by: ANLOponda</p>
+        <p class="ticker-text text-end p-flat">IONA Application by: ANLOponda</p>
       </b-col>
     </b-row>
-  </b-container>
-
-  <b-container fluid class="logo py-3">
-    <p class="p-flat text-center">
-      <b-link class="header-link" href="/"> Cat Breed Browser </b-link>
-    </p>
   </b-container>
 </template>
